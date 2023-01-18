@@ -1,9 +1,12 @@
+# Always remember to clean the project before commiting and pushing 
 CC = g++
+
 # The -I flag tells the compiler to check the include folder for more header files
 CFLAGS = -I /include -Wall
 TARGET = application
 FUNCTIONS = timeFunctions
 GRAPHICS = graphics
+O = objectFiles
 
 main: main.o $(FUNCTIONS).o $(GRAPHICS).o
 	$(CC) $(CFLAGS) -o ../bin/$(TARGET) main.o $(FUNCTIONS).o $(GRAPHICS).o
@@ -15,6 +18,6 @@ timeFunctions.o: $(FUNCTIONS).h $(FUNCTIONS).cpp
 
 graphics.o: $(FUNCTIONS).h 
 
-
 clean: 
 	$(RM) ../bin/$(TARGET)
+	$(RM) *.o
