@@ -1,25 +1,34 @@
 # Always remember to clean the project before commiting and pushing 
+#compiler
 CC = g++
-LIBS = -lglfw3 -lopengl32 -lm -lGLU32 -lGLEW32
-# The -I flag tells the compiler to check the include folder for more header files
-CFLAGS = -Iinclude -Wall -Wextra -pedantic 
+
+#Flags
+CPPFLAGS = -Iinclude -Wall -Wextra -pedantic -O2
+
 TARGET = application
 FUNCTIONS = timeFunctions
 GRAPHICS = graphics
 O = objectFiles
 
+SRC = main.cpp
+OBJ =   \
+		graphics.o \
+		timeFunctions.o \
+		main.o \
 
-main: main.o $(FUNCTIONS).o $(GRAPHICS).o
-	$(CC) $(CFLAGS) -o ../bin/$(TARGET) main.o $(FUNCTIONS).o $(GRAPHICS).o $(LIBS)
+BIN := $(TARGET).exe
+LIBS = -lglfw3 -lopengl32 -lm -lGLU32 -lGLEW32
 
-main.o: main.cpp $(FUNCTIONS).h $(GRAPHICS).h 
-	$(CC) $(CFLAGS) -c main.cpp $(LIBS)
+$(BIN): $(OBJ)
+	@mkdir -p ../bin
+	$(RM) ../bin/$(BIN) $(OBJS)
+	$(CC) $(SRC) $(CPPFLAGS) -o ../bin/$(BIN) $(LIBS)
 
-timeFunctions.o: $(FUNCTIONS).h 
-	$(CC) $(CFLAGS) -c $(FUNCTIONS).h 
+%.o:	%.cpp
+	$(CC) $(CPPFLAGS) -c $< -o $@ $(LIBS)
 
-graphics.o: $(GRAPHICS).h 
-	$(CC) $(CFLAGS) -c $(GRAPHICS).h $(LIBS)
+graphics: graphics.cpp
+	$(CC) $(CPPFLAGS) -c $< -o $@ $(LIBS)
 
 clean: 
 	$(RM) ../bin/$(TARGET)
