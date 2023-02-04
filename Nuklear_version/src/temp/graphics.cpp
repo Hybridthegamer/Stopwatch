@@ -25,6 +25,7 @@
 #define NK_KEYSTATE_BASED_INPUT
 
 #include <nuklear.h>
+#include <nuklear_glfw_gl3.h>
 
 #define WINDOW_WIDTH 1200
 #define WINDOW_HEIGHT 800
@@ -32,22 +33,6 @@
 #define MAX_VERTEX_BUFFER 512 * 1024
 #define MAX_ELEMENT_BUFFER 128 * 1024
 
- /* Platform */
-    struct nk_glfw glfw = {0};
-    static GLFWwindow *win;
-    int width = 0, height = 0;
-    struct nk_context *ctx;
-    struct nk_colorf bg;
-
-    /* GLFW */
-    glfwSetErrorCallback(error_callback);
-    if (!glfwInit()) {
-        fprintf(stdout, "[GFLW] failed to init!\n");
-        exit(1);
-    }
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
 //Display window 
 int displayWindow() {
