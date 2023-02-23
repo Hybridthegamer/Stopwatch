@@ -1,6 +1,6 @@
 # Always remember to clean the project before commiting and pushing 
 #compiler
-CC = g++
+CC = gcc
 
 #Flags
 CPPFLAGS = -Iinclude -Wall -Wextra -pedantic -O2
@@ -10,7 +10,7 @@ FUNCTIONS = timeFunctions
 GRAPHICS = graphics
 O = objectFiles
 
-SRC = main.cpp
+SRC = main.c
 OBJ =   \
 		graphics.o \
 		timeFunctions.o \
@@ -24,10 +24,10 @@ $(BIN): $(OBJ)
 	$(RM) ../bin/$(BIN) $(OBJS)
 	$(CC) $(SRC) $(CPPFLAGS) -o ../bin/$(BIN) $(LIBS)
 
-%.o:	%.cpp
+%.o:	%.c
 	$(CC) $(CPPFLAGS) -c $< -o $@ $(LIBS)
 
-graphics: graphics.cpp
+graphics: graphics.c
 	$(CC) $(CPPFLAGS) -c $< -o $@ $(LIBS)
 
 clean: 
