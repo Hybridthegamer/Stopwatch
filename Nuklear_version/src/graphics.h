@@ -8,8 +8,9 @@
 #define NK_IMPLEMENTATION
 #define NK_GLFW_GL3_IMPLEMENTATION
 #define NK_KEYSTATE_BASED_INPUT
-#include <nuklear.h>
 
 
-// Display window 
-int displayWindow();
+
+/*Display window */
+void displayWindow();
+void print();

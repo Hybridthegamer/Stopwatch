@@ -8,6 +8,7 @@
 #include <assert.h>
 #include <limits.h>
 #include <time.h>
+
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
@@ -22,9 +23,10 @@
 #define NK_GLFW_GL3_IMPLEMENTATION
 #define NK_KEYSTATE_BASED_INPUT
 */
+#include "graphics.h"
 #include "nuklear.h"
 #include "nuklear_glfw_gl3.h"
-#include "graphics.h"
+
 
 #define WINDOW_WIDTH 1200
 #define WINDOW_HEIGHT 800
@@ -41,7 +43,7 @@
 static void error_callback(int e, const char *d)
 {printf("Error %d: %s\n", e, d);}
 
-int displayWindow(void)
+void displayWindow(void)
 {
     /* Platform */
     struct nk_glfw glfw = {0};
@@ -75,10 +77,10 @@ int displayWindow(void)
     ctx = nk_glfw3_init(&glfw, win, NK_GLFW3_INSTALL_CALLBACKS);
     /* Load Fonts: if none of these are loaded a default font will be used  */
     /* Load Cursor: if you uncomment cursor loading please hide the cursor */
-    struct nk_font_atlas *atlas;
+    {struct nk_font_atlas *atlas;
     nk_glfw3_font_stash_begin(&glfw, &atlas);
 
-    nk_glfw3_font_stash_end(&glfw);
+    nk_glfw3_font_stash_end(&glfw);}
 
 
     bg.r = 0.10f, bg.g = 0.18f, bg.b = 0.24f, bg.a = 1.0f;
@@ -138,6 +140,11 @@ int displayWindow(void)
     }
     nk_glfw3_shutdown(&glfw);
     glfwTerminate();
-    return 0;
     
+    
+}
+
+void print()
+{
+    printf("This is working");
 }

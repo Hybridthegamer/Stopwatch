@@ -3,32 +3,21 @@
 CC = gcc
 
 #Flags
-CPPFLAGS = -Iinclude -Wall -Wextra -pedantic -O2
+CFLAGS += -Iinclude -std=c89 -Wall -Wextra -pedantic -O2
 
-TARGET = application
-FUNCTIONS = timeFunctions
-GRAPHICS = graphics
-O = objectFiles
+TARGET = app
 
-SRC = main.c
-OBJ =   \
-		graphics.o \
-		timeFunctions.o \
-		main.o \
+SRC = main.c \
+		graphics.c \
+
 
 BIN := $(TARGET).exe
 LIBS = -lglfw3 -lopengl32 -lm -lGLU32 -lGLEW32
 
-$(BIN): $(OBJ)
+$(BIN):  
 	@mkdir -p ../bin
 	$(RM) ../bin/$(BIN) $(OBJS)
-	$(CC) $(SRC) $(CPPFLAGS) -o ../bin/$(BIN) $(LIBS)
-
-%.o:	%.c
-	$(CC) $(CPPFLAGS) -c $< -o $@ $(LIBS)
-
-graphics: graphics.c
-	$(CC) $(CPPFLAGS) -c $< -o $@ $(LIBS)
+	$(CC) $(SRC) $(CFLAGS) -o ../bin/$(BIN) $(LIBS)
 
 clean: 
 	$(RM) ../bin/$(TARGET)
