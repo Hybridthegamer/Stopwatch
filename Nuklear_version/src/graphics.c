@@ -7,7 +7,8 @@
 #include <math.h>
 #include <assert.h>
 #include <limits.h>
-#include <time.h>
+#include <stdbool.h>
+
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
@@ -15,6 +16,10 @@
 #include "graphics.h"
 #include "nuklear.h"
 #include "nuklear_glfw_gl3.h"
+
+#include "timeFunctions.h"
+
+/*#define NK_ASSERT*/
 
 
 #define WINDOW_WIDTH 600
@@ -33,15 +38,18 @@
 static void error_callback(int e, const char *d)
 {printf("Error %d: %s\n", e, d);}
 
+extern bool isStarted, isPaused;
+
 void displayWindow(void)
 {
     /* Platform */
-    struct nk_glfw glfw = {0};
     static GLFWwindow *win;
     int width = 0, height = 0;
     struct nk_context *ctx;
+    
 
     /* GLFW */
+    struct nk_glfw glfw = {0};
     glfwSetErrorCallback(error_callback);
     if (!glfwInit()) {
         fprintf(stdout, "[GFLW] failed to init!\n");
@@ -59,7 +67,8 @@ void displayWindow(void)
     /* OpenGL or GLEW*/
     glViewport(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
     glewExperimental = 1;
-    if (glewInit() != GLEW_OK) {
+    if (glewInit() != GLEW_OK) 
+    {
         fprintf(stderr, "Failed to setup GLEW\n");
         exit(1);
     }
@@ -69,12 +78,17 @@ void displayWindow(void)
     /* Load Cursor: if you uncomment cursor loading please hide the cursor */
     {struct nk_font_atlas *atlas;
     nk_glfw3_font_stash_begin(&glfw, &atlas);
-    nk_glfw3_font_stash_end(&glfw);}
+    /*struct nk_font *droid = nk_font_atlas_add_from_file(atlas, "../../../extra_font/DroidSans.ttf", 14, NULL);*/
+    nk_glfw3_font_stash_end(&glfw);
+    /*nk_style_set_font(ctx, &droid->handle);*/}
 
 
 
     while (!glfwWindowShouldClose(win))
     {
+        /* Time logic */
+        /*date = getTimeAndDate();*/
+
         /* Input */
         glfwPollEvents();
         nk_glfw3_new_frame(&glfw);
@@ -82,9 +96,39 @@ void displayWindow(void)
         /* GUI */
         if (nk_begin(ctx, "Stopwatch", nk_rect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT), 0))
         {
-            nk_layout_row_static(ctx, 30, 80, 1);
-            if (nk_button_label(ctx, "button"))
-                fprintf(stdout, "button pressed\n");
+            nk_layout_row_dynamic(ctx, 0, 1);
+            nk_label(ctx, getTimeAndDate(), NK_TEXT_CENTERED);
+
+            nk_layout_row_dynamic(ctx, 30, 2);
+            if(isStarted == false) {
+                if (nk_button_label(ctx, "Start")) {
+                    fprintf(stdout, "Start\n");
+                    stopWatchStart();
+                }
+            }
+            else {
+                if (nk_button_label(ctx, "Stop")) {
+                    fprintf(stdout, "Stop\n");
+                    stopWatchEnd();
+                }
+            }
+
+            if( isPaused == false) {
+                if(nk_button_label(ctx, "Pause")) {
+                    fprintf(stdout, "Pause\n");
+                    stopWatchPause();
+                }
+            }
+            else {
+                if (nk_button_label(ctx, "Unpause")) {
+                    fprintf(stdout, "Unpause");
+                    stopWatchUnpause();
+                }
+            }
+            printf("%s", stopWatchUpdate());
+            nk_layout_row_dynamic(ctx, 0, 1);
+            nk_label(ctx, "", NK_TEXT_CENTERED);
+            
            
         }
         nk_end(ctx);
@@ -104,9 +148,4 @@ void displayWindow(void)
     }
     nk_glfw3_shutdown(&glfw);
     glfwTerminate();
-}
-
-void print()
-{
-    printf("This is working");
 }

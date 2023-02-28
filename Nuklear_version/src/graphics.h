@@ -8,9 +8,8 @@
 #define NK_IMPLEMENTATION
 #define NK_GLFW_GL3_IMPLEMENTATION
 #define NK_KEYSTATE_BASED_INPUT
-
+/*#define NK_ASSERT*/
 
 
 /*Display window */
 void displayWindow();
-void print();

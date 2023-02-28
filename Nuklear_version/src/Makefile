@@ -3,12 +3,13 @@
 CC = gcc
 
 #Flags
-CFLAGS += -Iinclude -std=c89 -Wall -Wextra -pedantic -O2
+CFLAGS +=  -Iinclude -std=c89 -Wall -Wextra -pedantic -O2
 
 TARGET = app
 
 SRC = main.c \
 		graphics.c \
+		timeFunctions.c \
 
 
 BIN := $(TARGET).exe
@@ -19,6 +20,12 @@ $(BIN):
 	$(RM) ../bin/$(BIN) $(OBJS)
 	$(CC) $(SRC) $(CFLAGS) -o ../bin/$(BIN) $(LIBS)
 
+debug:
+	$(CC) $(SRC) $(CFLAGS) $(LIBS) -o ../bin/debug-$(BIN) -g 
+
+timefunct:
+	$(CC) timeFunctions.c $(CFLAGS) -o ../bin/Timefunct.exe
+
 clean: 
-	$(RM) ../bin/$(TARGET)
+	$(RM) ../bin/*.exe
 	$(RM) *.o
