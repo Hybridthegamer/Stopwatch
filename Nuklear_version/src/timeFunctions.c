@@ -1,12 +1,14 @@
 #include <stdbool.h>
 #include "timeFunctions.h"
 
-time_t start, end, pause, unpause, stopWatchTimer, dateTime;
+time_t start, end, paused, unpaused, dateTime;
 struct tm* timeInfo;
 bool isStarted, isPaused;
 char buffer[80];
 char str[30];
 float losttime = 0;
+float stopWatchTimer;
+
 
 char* getTimeAndDate()
 {
@@ -14,56 +16,50 @@ char* getTimeAndDate()
     timeInfo = localtime(&dateTime);
     strftime(buffer, 80, "%I:%M%p", timeInfo);
     return buffer;
-
 }
 
-int stopWatchStart()
+void stopWatchStart()
 {
-    if(isStarted == false)
-    {
+    if(isStarted == false) {
         start = time(NULL);
+        end = time(NULL);
+        stopWatchTimer = 0;
         isStarted = true;
     }
-    return 0;
 }
 
-int stopWatchPause()
+void stopWatchPause()
 {
-    if(isPaused == false)
-    {
+    if(isPaused == false) {
         isPaused = true;
-        pause = time(NULL);
+        paused = time(NULL);
     }
-    return 0;
 }
 
-int stopWatchUnpause()
+void stopWatchUnpause()
 {
-    if(isPaused == true)
-    {
+    if(isPaused == true) {
         isPaused = false;
-        unpause = time(NULL);
-        losttime += difftime(unpause, pause);
+        unpaused = time(NULL);
+        losttime += difftime(unpaused, paused);
     }
-    return 0;
 }
 
-int stopWatchEnd()
+void stopWatchStop()
 {
-    if(isStarted == true)
-    {
+    if(isStarted == true) {
         isStarted = false;
         isPaused = false;
-        losttime = 0;
+        end = time(NULL);
     }
-    return 0;
 }
 
 char* stopWatchUpdate()
 {
-    if(isStarted && !isPaused)
+    if ((isStarted)&& !(isPaused)) {
         end = time(NULL);
+    }
     stopWatchTimer = difftime(end, start) - losttime;
-    sprintf(str, "%.2fs", stopWatchTimer);
-    printf("%s", str);
+    sprintf(str, "%.2f", stopWatchTimer);
+    return str;
 }

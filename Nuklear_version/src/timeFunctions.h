@@ -2,8 +2,8 @@
 #include <time.h>
 
 char* getTimeAndDate();
-int stopWatchStart();
-int stopWatchPause();
-int stopWatchUnpause();
-int stopWatchEnd();
+void stopWatchStart();
+void stopWatchPause();
+void stopWatchUnpause();
+void stopWatchStop();
 char* stopWatchUpdate();
