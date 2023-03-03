@@ -1,0 +1,23 @@
+# ninja log v5
+41	6409	6958805600805522	Stopwatch_autogen/timestamp	8298450650c33611
+41	6409	6958805600805522	Stopwatch_autogen/mocs_compilation.cpp	8298450650c33611
+41	6409	6958805600805522	C:/Users/Joshuito/Documents/GitHub/Stopwatch/Qt_version/build-Stopwatch-Desktop_Qt_6_4_2_MinGW_64_bit-Debug/Stopwatch_autogen/timestamp	8298450650c33611
+41	6409	6958805600805522	C:/Users/Joshuito/Documents/GitHub/Stopwatch/Qt_version/build-Stopwatch-Desktop_Qt_6_4_2_MinGW_64_bit-Debug/Stopwatch_autogen/mocs_compilation.cpp	8298450650c33611
+6493	13474	6958805678255495	CMakeFiles/Stopwatch.dir/main.cpp.obj	897225acb6801f78
+6411	13547	6958805678985504	CMakeFiles/Stopwatch.dir/Stopwatch_autogen/mocs_compilation.cpp.obj	504411f554479d2
+6446	13618	6958805679695498	CMakeFiles/Stopwatch.dir/mainwindow.cpp.obj	bd5b66996ef62ce8
+13736	16065	6958805704003994	Stopwatch.exe	1f55672412b0de2c
+119	2156	6959568872746199	Stopwatch_autogen/timestamp	8298450650c33611
+119	2156	6959568872746199	Stopwatch_autogen/mocs_compilation.cpp	8298450650c33611
+119	2156	6959568872746199	C:/Users/Joshuito/Documents/GitHub/Stopwatch/Qt_version/build-Stopwatch-Desktop_Qt_6_4_2_MinGW_64_bit-Debug/Stopwatch_autogen/timestamp	8298450650c33611
+119	2156	6959568872746199	C:/Users/Joshuito/Documents/GitHub/Stopwatch/Qt_version/build-Stopwatch-Desktop_Qt_6_4_2_MinGW_64_bit-Debug/Stopwatch_autogen/mocs_compilation.cpp	8298450650c33611
+2223	15880	6959569010081313	CMakeFiles/Stopwatch.dir/mainwindow.cpp.obj	bd5b66996ef62ce8
+2417	15908	6959569010321331	CMakeFiles/Stopwatch.dir/main.cpp.obj	897225acb6801f78
+15909	20166	6959569052635460	Stopwatch.exe	1f55672412b0de2c
+133	2562	6959639025411591	Stopwatch_autogen/timestamp	8298450650c33611
+133	2562	6959639025411591	Stopwatch_autogen/mocs_compilation.cpp	8298450650c33611
+133	2562	6959639025411591	C:/Users/Joshuito/Documents/GitHub/Stopwatch/Qt_version/build-Stopwatch-Desktop_Qt_6_4_2_MinGW_64_bit-Debug/Stopwatch_autogen/timestamp	8298450650c33611
+133	2562	6959639025411591	C:/Users/Joshuito/Documents/GitHub/Stopwatch/Qt_version/build-Stopwatch-Desktop_Qt_6_4_2_MinGW_64_bit-Debug/Stopwatch_autogen/mocs_compilation.cpp	8298450650c33611
+2739	33076	6959639330149635	CMakeFiles/Stopwatch.dir/main.cpp.obj	897225acb6801f78
+2618	33240	6959639331229642	CMakeFiles/Stopwatch.dir/mainwindow.cpp.obj	bd5b66996ef62ce8
+33243	40717	6959639406691587	Stopwatch.exe	1f55672412b0de2c

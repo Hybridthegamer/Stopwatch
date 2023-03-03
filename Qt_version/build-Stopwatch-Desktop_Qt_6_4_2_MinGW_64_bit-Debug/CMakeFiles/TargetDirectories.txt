@@ -1,0 +1,9 @@
+C:/Users/Joshuito/Documents/GitHub/Stopwatch/Qt_version/build-Stopwatch-Desktop_Qt_6_4_2_MinGW_64_bit-Debug/CMakeFiles/Stopwatch.dir
+C:/Users/Joshuito/Documents/GitHub/Stopwatch/Qt_version/build-Stopwatch-Desktop_Qt_6_4_2_MinGW_64_bit-Debug/CMakeFiles/edit_cache.dir
+C:/Users/Joshuito/Documents/GitHub/Stopwatch/Qt_version/build-Stopwatch-Desktop_Qt_6_4_2_MinGW_64_bit-Debug/CMakeFiles/rebuild_cache.dir
+C:/Users/Joshuito/Documents/GitHub/Stopwatch/Qt_version/build-Stopwatch-Desktop_Qt_6_4_2_MinGW_64_bit-Debug/CMakeFiles/list_install_components.dir
+C:/Users/Joshuito/Documents/GitHub/Stopwatch/Qt_version/build-Stopwatch-Desktop_Qt_6_4_2_MinGW_64_bit-Debug/CMakeFiles/install.dir
+C:/Users/Joshuito/Documents/GitHub/Stopwatch/Qt_version/build-Stopwatch-Desktop_Qt_6_4_2_MinGW_64_bit-Debug/CMakeFiles/install/local.dir
+C:/Users/Joshuito/Documents/GitHub/Stopwatch/Qt_version/build-Stopwatch-Desktop_Qt_6_4_2_MinGW_64_bit-Debug/CMakeFiles/install/strip.dir
+C:/Users/Joshuito/Documents/GitHub/Stopwatch/Qt_version/build-Stopwatch-Desktop_Qt_6_4_2_MinGW_64_bit-Debug/CMakeFiles/Stopwatch_autogen_timestamp_deps.dir
+C:/Users/Joshuito/Documents/GitHub/Stopwatch/Qt_version/build-Stopwatch-Desktop_Qt_6_4_2_MinGW_64_bit-Debug/CMakeFiles/Stopwatch_autogen.dir
